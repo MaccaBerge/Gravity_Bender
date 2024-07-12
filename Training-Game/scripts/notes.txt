@@ -1,0 +1,17 @@
+
+hitboxes:
+
+    - When using one hitbox that goes out of the normal rect of a physics entity, the speed has to be high enough to use it, otherwise it
+      will teleport you to the other side of the wall. Therfore, if you want a horizontal hitbox that is larger than the rect, you must
+      create two seperate hitboxes for each direction.
+
+Player bouncing because of size (collision "seams" to not work):
+
+    - When using the get_tiles_around function in the tilemap, it only gets the tiles around the position, if the player gets really big,
+      what can happen is that those tiles arnt egnough. So either the player has to become smaller or the tiles bigger.
+    
+
+After transition from ground to ceiling, player pop though the ceiling (probably vise versa):
+
+    - For the same reason you fo though the floor when you dont set the velocity[1] to 0, you need to set the velocity[1] to 0 each update
+      when the player is transitioning from floor to ceiling (and vise versa).
